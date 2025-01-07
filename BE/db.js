@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { string } = require("zod");
 
 ( async () => {
     await mongoose.connect("");
