@@ -137,7 +137,11 @@ app.get('/admin/courses',auth,async (req,res) => {
 app.put('/admin/courses/:courseId',auth,async (req,res) => {
     try{
             const { courseId } = req.params;
-            const course = await courseModel.findByIdAndUpdate(courseId,{
+            const adminId = req.Id;
+            const course = await courseModel.findByIdAndUpdate({
+                courseId,
+                adminId
+            },{
                 title : req.body.title,
                 description : req.body.description,
                 price : req.body.price,
