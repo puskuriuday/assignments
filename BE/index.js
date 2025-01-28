@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const { adminModel , courseModel, userModel ,purchasedcourseModel } = require("./db.js");
 
 const app = express();
-const jwt_pass = "badcow12345";
+const jwt_pass = "458965558866255ggdsbjuy+-£_hjcc";
 
 
 app.use(express.json());
