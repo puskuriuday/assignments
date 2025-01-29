@@ -1,8 +1,17 @@
 const express = require("express");
+const { valid , update } = require("./valid.js")
+
 const app = express();
 
 
-app.post('/todos',() => {
+app.post('/todos',(req , res ) => {
+    const todo = req.body;
+    const validTodo = valid.safeParse(todo);
+    if(!validTodo.success){
+        return res.json({
+            msg : "Invalid input type"
+        });
+    }
 
 });
 
