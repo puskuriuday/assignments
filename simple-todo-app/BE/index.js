@@ -11,6 +11,8 @@ app.post('/todos',(req , res ) => {
         return res.json({
             msg : "Invalid input type"
         });
+    }else{
+
     }
 
 });
@@ -19,7 +21,16 @@ app.get('/todos',() => {
 
 });
 
-app.put('/completed',() => {
+app.put('/completed',(req , res ) => {
+    const updateid = req.body;
+    const validUpdate = update.safeParse(updateid);
+    if(!validUpdate.success){
+        return res.json({
+            msg : "invalid input type"
+        });
+    }else{
+        
+    }
 
 });
 
