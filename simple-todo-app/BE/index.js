@@ -1,12 +1,13 @@
 const express = require("express");
-const { valid , update } = require("./valid.js")
+const { valid , update } = require("./valid.js");
+const { todoModel } = require("./db.js");
 
 const app = express();
 
 
 app.use(express.json());
 
-app.post('/todos',(req , res ) => {
+app.post('/todos',async (req , res ) => {
     const todo = req.body;
     const validTodo = valid.safeParse(todo);
     if(!validTodo.success){
@@ -14,7 +15,11 @@ app.post('/todos',(req , res ) => {
             msg : "Invalid input type"
         });
     }else{
-
+        const{ title , desc } = req.body;
+        await todoModel.create({
+            title,
+            desc
+        });
     }
 
 });
