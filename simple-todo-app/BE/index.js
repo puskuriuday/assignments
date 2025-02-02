@@ -24,11 +24,11 @@ app.post('/todos',async (req , res ) => {
 
 });
 
-app.get('/todos',() => {
+app.get('/todos',async (req,res) => {
 
 });
 
-app.put('/completed',(req , res ) => {
+app.put('/completed',async (req , res ) => {
     const updateid = req.body;
     const validUpdate = update.safeParse(updateid);
     if(!validUpdate.success){
