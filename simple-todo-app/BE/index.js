@@ -44,4 +44,6 @@ app.put('/completed',async (req , res ) => {
 
 
 
-app.listen(3000);
+app.listen(3000,() => {
+    console.log("you are in port 3000");
+});
